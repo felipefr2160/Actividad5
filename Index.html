@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="slotApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Tragaperras AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body ng-controller="SlotController">
+
+    <h1> Mini Tragamonedas</h1>
+
+    <div class="game-container">
+        
+        <div>
+            <button class="spin-btn" ng-click="girar()" ng-disabled="girando">
+                {{ girando ? 'Girando...' : 'JUGAR' }} 
+            </button>
+        </div>
+
+        <div class="reels-container">
+            <div class="reel" ng-repeat="simbolo in carretes track by $index">
+                {{ simbolo.icono }}
+            </div>
+        </div>
+
+        <div class="message-box" ng-class="claseResultado">
+            <span ng-show="!girando">{{ mensajeResultado }}</span>
+        </div>
+
+        <table class="stats-table">
+            <thead>
+                <tr>
+                    <th>Resultado</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Ganadas (3 iguales)</td>
+                    <td>{{ estadisticas.ganadas }}</td>
+                </tr>
+                <tr>
+                    <td> Casi (2 iguales)</td>
+                    <td>{{ estadisticas.casi }}</td>
+                </tr>
+                <tr>
+                    <td> Perdidas (Todas diferentes)</td>
+                    <td>{{ estadisticas.perdidas }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/app.js"></script> ```
+
+
+</body>
+</html>
